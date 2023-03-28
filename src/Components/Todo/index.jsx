@@ -46,12 +46,13 @@ const Todo = () => {
   }
 
   useEffect(() => {
-    let incompleteCount = list.filter(item => !item.complete);
-    setIncomplete(incompleteCount);
-    let pageStart = (currentPage - 1) * items;
-    let showItems = showCompleted ? list : incompleteCount;
-    let page = showItems.slice(pageStart, items + pageStart);
-    setDisplay(page);
+    let listToRender = list.filter(item => !item.complete);
+    setIncomplete(listToRender);
+    let listStart = (currentPage - 1) * items;
+    let listEnd = items + listStart
+    let showItems = showCompleted ? list : listToRender;
+    let display = showItems.slice(listStart, listEnd);
+    setDisplay(display);
   }, [list, currentPage, items, showCompleted])
 
   return (
