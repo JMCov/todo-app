@@ -6,9 +6,9 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <SettingsProvider>
-    <React.StrictMode>
+  <React.StrictMode>
+     <SettingsProvider>
       <App />
-    </React.StrictMode>
-  </SettingsProvider>
+    </SettingsProvider>
+  </React.StrictMode>
 );

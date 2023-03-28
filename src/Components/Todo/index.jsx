@@ -4,8 +4,8 @@ import { SettingsContext } from '../../Context/Settings';
 import { v4 as uuid } from 'uuid';
 import List from '../List';
 import Header from '../Header';
-import Footer from '../Footer';
 import { Pagination } from '@mantine/core';
+import './todo.css';
 
 const Todo = () => {
 
@@ -57,40 +57,41 @@ const Todo = () => {
   return (
     <>
       <Header incomplete={incomplete} />
-      <form onSubmit={handleSubmit}>
+      <div className="form-list"> 
+        <form onSubmit={handleSubmit} className="form-container">
 
-        <h2>Add To Do Item</h2>
+          <h2 className="form-h2">Add To Do Item</h2>
 
-        <label>
-          <span>To Do Item</span>
-          <input onChange={handleChange} name="text" type="text" placeholder="Item Details" />
-        </label>
+          <label className="todo-item">
+            <span>To Do Item</span>
+            <input onChange={handleChange} name="text" type="text" placeholder="Item Details" />
+          </label>
 
-        <label>
-          <span>Assigned To</span>
-          <input onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
-        </label>
+          <label className="assignee">
+            <span>Assigned To</span>
+            <input onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
+          </label>
 
-        <label>
-          <span>Difficulty</span>
-          <input onChange={handleChange} defaultValue={defaultValues.difficulty} type="range" min={1} max={5} name="difficulty" />
-        </label>
+          <label className="difficulty">
+            <span>Difficulty</span>
+            <input onChange={handleChange} defaultValue={defaultValues.difficulty} type="range" min={1} max={5} name="difficulty" />
+          </label>
 
-        <label>
-          <button type="submit">Add Item</button>
-        </label>
-      </form>
+          <label className="submit-button">
+            <button type="submit">Add Item</button>
+          </label>
+        </form>
 
-      <List 
-        display={display} 
-        toggleComplete={toggleComplete} 
-      />
+        <List 
+          display={display} 
+          toggleComplete={toggleComplete} 
+        />
+      </div>
       <Pagination
         total={Math.ceil(list.length / items)}
         value={currentPage}
         onChange={(value) => setCurrentPage(value)}
       />
-      <Footer />
     </>
   );
 };
