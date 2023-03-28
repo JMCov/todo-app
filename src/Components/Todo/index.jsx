@@ -89,6 +89,7 @@ const Todo = () => {
         />
       </div>
       <Pagination
+        className="pagination"
         total={Math.ceil(list.length / items)}
         value={currentPage}
         onChange={(value) => setCurrentPage(value)}
