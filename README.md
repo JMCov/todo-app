@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# LAB - Class 31
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project: todo-app
 
-## Available Scripts
+### Author: Jordan Covington
 
-In the project directory, you can run:
+### Problem Domain  
 
-### `npm start`
+1. Implement the React context API for defining settings across the entire application.
+    - Create React Context for managing application display settings and provide this at the application level.
+    - Add the following defaults to the context provider’s state, they will not be changeable in this lab.
+      - Display three items.
+      - Hide completed items using a boolean.
+      - Define “difficulty” as a default sort word to optionally use in the stretch goal.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Consume and utilize context values throughout your components.
+    - Show a maximum of three items per screen by default in the `<List />` component.
+   - Use the Mantine `<Pagination />` component to allow users to navigate a list of items.
+    - Hide completed items in the list by default (the ability to show will be added in a later lab).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Pagination Notes:
 
-### `npm test`
+- Only display the first n items in the list, where n is the default number three from your settings context.
+- If you have more than n items in the list, the `<Pagination />` component will add a button that, when clicked, will replace the list with the next n. items in the list.
+- the `<Pagination />` component will manage the “previous” and “next” buttons upon correct implementation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Links and Resources
 
-### `npm run build`
+- [GitHub Repo](https://github.com/JMCov/todo-app)
+- [CodeSandbox](https://codesandbox.io/p/github/JMCov/todo-app/context-settings?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522clfsrdont000wg0eq9xangkav%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clfsremb500cz356l707xixgb%2522%253A%257B%2522key%2522%253A%2522clfsremb500cz356l707xixgb%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522key%2522%253A%2522clfsremb600d0356l6vdjk7ac%2522%252C%2522type%2522%253A%2522PROJECT_SETUP%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522clfsremb600d1356luoq24wjc%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clfsremb500cz356l707xixgb%2522%252C%2522spacesOrder%2522%253A%255B%2522clfsremb500cz356l707xixgb%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### How to initialize/run your application (where applicable)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm start
 
-### `npm run eject`
+#### How to use your library (where applicable)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### UML
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![UML](./assets/lab31-uml.PNG)
