@@ -16,6 +16,15 @@
   border-bottom: 1px solid lightgray;
 }
 
+.pending{
+  background-color: #51CF66;
+  font-weight: bold;;
+  color: white;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .list-assignee {
   margin-left: 10px;
  
