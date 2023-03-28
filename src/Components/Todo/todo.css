@@ -1,0 +1,56 @@
+/* .form-list {
+  display: flex;
+} */
+.form-container {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #ccc;
+  max-width: 200px; 
+}
+
+.form-h2 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.todo-item, .assignee, .difficulty, .submit-button {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.todo-item span, .assignee span, .difficulty span {
+  margin-bottom: 5px;
+}
+
+.todo-item input, .assignee input, .difficulty input {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px #ccc;
+  font-size: 14px;
+}
+/* 
+.difficulty input {
+  width: 50%;
+} */
+
+.submit-button button {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px #ccc;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.submit-button button:hover {
+  background-color: #3e8e41;
+}
