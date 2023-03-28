@@ -1,24 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react';
 import useForm from '../../hooks/form';
-import { SettingsContext } from '../../Context/Settings';
+import { createStyles, Grid } from '@mantine/core';
 import { v4 as uuid } from 'uuid';
+import { SettingsContext } from '../../Context/Settings';
 import List from '../List';
-import Header from '../Header';
-import { Pagination } from '@mantine/core';
-import './todo.css';
+import './todo.css'
+
+const useStyles = createStyles((theme) => ({
+  h1: {
+    backgroundColor: theme.colors.gray[8],
+    color: theme.colors.gray[0],
+    width: '80%',
+    margin: 'auto',
+    fontSize: theme.fontSizes.lg,
+    padding: theme.spacing.md,
+    marginTop: theme.spacing.md,
+    marginBottom: theme.spacing.md,
+  }
+}));
 
 const Todo = () => {
-
+  const { classes } = useStyles();
   const [defaultValues] = useState({
     difficulty: 4,
   });
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
-  const [display, setDisplay] = useState([...list]);
-  const [currentPage, setCurrentPage] = useState(1)
-  const { items, showCompleted, sort } = useContext(SettingsContext);
-
 
   function addItem(item) {
     item.id = uuid();
@@ -28,14 +36,14 @@ const Todo = () => {
   }
 
   function deleteItem(id) {
-    const items = list.filter( item => item.id !== id );
+    const items = list.filter(item => item.id !== id);
     setList(items);
   }
 
   function toggleComplete(id) {
 
-    const items = list.map( item => {
-      if ( item.id === id ) {
+    const items = list.map(item => {
+      if (item.id === id) {
         item.complete = !item.complete;
       }
       return item;
@@ -46,54 +54,49 @@ const Todo = () => {
   }
 
   useEffect(() => {
-    let listToRender = list.filter(item => !item.complete);
-    setIncomplete(listToRender);
-    let listStart = (currentPage - 1) * items;
-    let listEnd = items + listStart
-    let showItems = showCompleted ? list : listToRender;
-    let display = showItems.slice(listStart, listEnd);
-    setDisplay(display);
-  }, [list, currentPage, items, showCompleted])
+    let incompleteCount = list.filter(item => !item.complete).length;
+    setIncomplete(incompleteCount);
+    document.title = `To Do List: ${incomplete}`;
+    // linter will want 'incomplete' added to dependency array unnecessarily. 
+    // disable code used to avoid linter warning 
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
+  }, [list]);
 
   return (
     <>
-      <Header incomplete={incomplete} />
-      <div className="form-list"> 
-        <form onSubmit={handleSubmit} className="form-container">
+      <h1 data-testid="todo-h1" className={classes.h1}>To Do List: {incomplete} items pending</h1>
+      <Grid style={{width: '80%', margin: 'auto'}}>
+        <Grid.Col xs={12} sm={4}>
+          <form onSubmit={handleSubmit} className="form-container">
 
-          <h2 className="form-h2">Add To Do Item</h2>
+            <h2 className="form-h2">Add To Do Item</h2>
 
-          <label className="todo-item">
-            <span>To Do Item</span>
-            <input onChange={handleChange} name="text" type="text" placeholder="Item Details" />
-          </label>
+            <label className="todo-item">
+              <span>To Do Item</span>
+              <input onChange={handleChange} name="text" type="text" placeholder="Item Details" />
+            </label>
 
-          <label className="assignee">
-            <span>Assigned To</span>
-            <input onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
-          </label>
+            <label className="assignee">
+              <span>Assigned To</span>
+              <input onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
+            </label>
 
-          <label className="difficulty">
-            <span>Difficulty</span>
-            <input onChange={handleChange} defaultValue={defaultValues.difficulty} type="range" min={1} max={5} name="difficulty" />
-          </label>
+            <label className="difficulty">
+              <span>Difficulty</span>
+              <input onChange={handleChange} defaultValue={defaultValues.difficulty} type="range" min={1} max={5} name="difficulty" />
+            </label>
 
-          <label className="submit-button">
-            <button type="submit">Add Item</button>
-          </label>
-        </form>
+            <label className="submit-button">
+              <button type="submit">Add Item</button>
+            </label>
+          </form>
+        </Grid.Col>
 
-        <List 
-          display={display} 
-          toggleComplete={toggleComplete} 
-        />
-      </div>
-      <Pagination
-        className="pagination"
-        total={Math.ceil(list.length / items)}
-        value={currentPage}
-        onChange={(value) => setCurrentPage(value)}
-      />
+        <Grid.Col xs={12} sm={8}>
+          <List list={list} toggleComplete={toggleComplete} />
+        </Grid.Col>
+
+      </Grid>
     </>
   );
 };
