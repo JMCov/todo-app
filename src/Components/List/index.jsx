@@ -8,6 +8,7 @@ const List = ({ display, toggleComplete }) => {
       {display.map((item) => (
         <Card key={item.id} shadow="sm" className="list-card">
           <div className="list-header">
+            <Text size="sm" className="pending">Pending</Text>
             <Text size="sm" className="list-assignee">{item.assignee}</Text>
             <Button variant="subtle" className="list-close-button" onClick={() => toggleComplete(item.id)}>X</Button>
           </div>
