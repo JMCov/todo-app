@@ -1,10 +1,12 @@
-# LAB - Class 31
+# LAB - Class 31/ Class 32
 
 ## Project: todo-app
 
 ### Author: Jordan Covington
 
 ### Problem Domain  
+
+Phase 1
 
 1. Implement the React context API for defining settings across the entire application.
     - Create React Context for managing application display settings and provide this at the application level.
@@ -18,11 +20,27 @@
    - Use the Mantine `<Pagination />` component to allow users to navigate a list of items.
     - Hide completed items in the list by default (the ability to show will be added in a later lab).
 
-Pagination Notes:
+3. Pagination Notes:
 
-- Only display the first n items in the list, where n is the default number three from your settings context.
-- If you have more than n items in the list, the `<Pagination />` component will add a button that, when clicked, will replace the list with the next n. items in the list.
-- the `<Pagination />` component will manage the “previous” and “next” buttons upon correct implementation.
+    - Only display the first n items in the list, where n is the default number three from your settings context.
+    - If you have more than n items in the list, the `<Pagination />` component will add a button that, when clicked, will replace the list with the next n. items in the list.
+    - the `<Pagination />` component will manage the “previous” and “next” buttons upon correct implementation.
+
+Phase 2
+
+1. Extend your `context` provider to include all of the following features:
+    - Create a `context` for managing application settings and provide this at the application level.
+    - Display or Hide completed items (boolean).
+    - Number of items to display per screen (number).
+    - Default sort field (string).
+    - Create a function in your context that saves user preferences (for the above) to local storage.
+    - Implement a `useEffect()` (or `componentDidMount()`) in your context to read from local storage and set the values for those 2 state properties on application load.
+        - Note: You will need to `stringify()` your state prior to saving to local storage, and parse it when you retrieve it.
+
+2. Consume and utilize `Context` values throughout your components:
+    - Show a maximum of a certain number of items per screen in the `<List />` component.
+        - Properly implement the Mantine `<Pagination />` component functionality to let the users navigate a long list of items with the correct number of tasks showing per “page”.
+    - Hide or show completed items in the list.
 
 ### Links and Resources
 
@@ -39,5 +57,5 @@ npm start
 
 #### UML
 
-
-![UML](./assets/lab31-uml.PNG)
+![Lab 31 - UML](./assets/lab31-uml.PNG)
+![Lab 32 - UML](./assets/lab32-uml.PNG)
