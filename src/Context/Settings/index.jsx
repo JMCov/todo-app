@@ -32,6 +32,7 @@ const SettingsProvider = ({ children }) => {
     setDisplayCount,
     setShowComplete,
     setSort,
+    saveSettings
   }
 
   return (
