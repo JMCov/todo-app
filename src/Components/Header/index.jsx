@@ -1,4 +1,4 @@
-import { createStyles, Header, Navbar, Text } from '@mantine/core';
+import { createStyles, Header, Navbar, Text, Group } from '@mantine/core';
 import { Link } from 'react-router-dom'
 
 const useStyles = createStyles((theme) => ({
@@ -10,11 +10,6 @@ const useStyles = createStyles((theme) => ({
     padding: theme.spacing.md,
 
   },
-  link: {
-    
-    width: '80px',
-    
-  },
 }));
 
 const HeaderComponent = () => {
@@ -22,10 +17,10 @@ const HeaderComponent = () => {
   return (
     <Header>
       <Navbar className={classes.navbar}>
-      <Link className={classes.link} to="/">Todo</Link>
-      <Link className={classes.link} to="/settings">Settings</Link>
-
-
+        <Group spacing="xs">
+          <Link className={classes.link} to="/">Todo</Link>
+          <Link className={classes.link} to="/settings">Settings</Link>
+        </Group>
       </Navbar>
     </Header>
   )
