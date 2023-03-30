@@ -22,7 +22,7 @@ const List = ({ list, toggleComplete, deleteItem }) => {
 
   return (
     <>
-      {displayList.map(item => (
+      {displayList.map((item, idx) => (
         <Card key={item.id} shadow="sm" className="list-card">
           <div className="list-header">
             <If condition={loggedIn && can('update')}>
@@ -40,14 +40,14 @@ const List = ({ list, toggleComplete, deleteItem }) => {
               </Else>
             </If>
 
-            <Text size="sm" className="list-assignee">{item.assignee}</Text>
+            <Text data-testid={`item-assignee-${idx}`} size="sm" className="list-assignee">{item.assignee}</Text>
             <Auth capability="delete">
               <Button variant="subtle" className="list-close-button" onClick={() => deleteItem(item.id)}>X</Button>
             </Auth>
           </div>
           <div className="list-body">
-            <Text size="lg" className="list-item-text">{item.text}</Text>
-            <Text size="sm" className="list-difficulty">{`Difficulty: ${item.difficulty}`}</Text>
+            <Text data-testid={`item-text-${idx}`} size="lg" className="list-item-text">{item.text}</Text>
+            <Text data-testid={`item-difficulty-${idx}`} size="sm" className="list-difficulty">{`Difficulty: ${item.difficulty}`}</Text>
           </div>
         </Card>
       ))}
