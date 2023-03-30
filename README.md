@@ -42,6 +42,26 @@ Phase 2
         - Properly implement the Mantine `<Pagination />` component functionality to let the users navigate a long list of items with the correct number of tasks showing per “page”.
     - Hide or show completed items in the list.
 
+Phase 3 
+
+1. Implement a Login/Auth React Context, “protect” the To Do application by restricting access to the various application features based on the users’ login status and capabilities.
+    - Define a function that can simulate a `login` event.
+        - Parameters: username and password as strings.
+        - Sets a `User` on the auth context, and changes login status to `true`.
+    - Define a function that can simulate a `logout` event.
+        - Resets the `User` object and changes login status to `false`.
+    - Define a function that can `authorize` a User based on a capability.
+        - Parameters: a capability as a string.
+        - Returns a boolean whether the `user` has the capability parameter.
+2. Create an `<Auth />` component with the following features:
+    - Given a capability prop of type string, conditionally render components based on the `user` stored in `context`.
+    - Hide the entire interface until the user has logged in.
+    - Implements the following RBAC rules:
+        - Logged In Users with ‘update’ permissions can click the records to mark them as complete.
+        - Logged In Users with ‘create’ permissions can create new items.
+        - Logged In Users with ‘delete’ permissions can delete items.
+        - Logged In Users with ‘read’ permissions can see the list of To Do Items.
+
 ### Links and Resources
 
 - [GitHub Repo](https://github.com/JMCov/todo-app)
