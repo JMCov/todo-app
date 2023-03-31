@@ -23,11 +23,11 @@ const List = ({ list, toggleComplete, deleteItem }) => {
   return (
     <>
       {displayList.map((item, idx) => (
-        <Card key={item.id} shadow="sm" className="list-card">
+        <Card key={item._id} shadow="sm" className="list-card">
           <div className="list-header">
             <If condition={loggedIn && can('update')}>
               <Then>
-                <Text size="sm" className={item.complete ? 'complete' : 'pending'} onClick={() => toggleComplete(item.id)}>
+                <Text size="sm" className={item.complete ? 'complete' : 'pending'} onClick={() => toggleComplete(item._id)}>
                   {item.complete ? 'Complete' : 'Pending'}
                 </Text>
 
@@ -42,7 +42,7 @@ const List = ({ list, toggleComplete, deleteItem }) => {
 
             <Text data-testid={`item-assignee-${idx}`} size="sm" className="list-assignee">{item.assignee}</Text>
             <Auth capability="delete">
-              <Button variant="subtle" className="list-close-button" onClick={() => deleteItem(item.id)}>X</Button>
+              <Button variant="subtle" className="list-close-button" onClick={() => deleteItem(item._id)}>X</Button>
             </Auth>
           </div>
           <div className="list-body">

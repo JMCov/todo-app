@@ -11,6 +11,17 @@ const useStyles = createStyles((theme) => ({
     padding: theme.spacing.md,
 
   },
+  spacer: {
+    marginLeft: 'auto',
+  },
+  link: {
+    color: 'white',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none',
+    },
+    padding: '5px'
+  },
 }));
 
 const HeaderComponent = () => {
@@ -19,12 +30,14 @@ const HeaderComponent = () => {
     <Header>
       <Navbar className={classes.navbar}>
         <Group spacing="xs">
-          <Link default className={classes.link} to="/">Todo</Link>
-          <Link className={classes.link} to="/settings">Settings</Link>
-        <Login />
-        </Group>
-      </Navbar>
-    </Header>
+          <Link default to="/" className={classes.link}>Home</Link>
+          <Link to="/settings" className={classes.link}>Settings</Link>
+          <div className={classes.spacer}>
+          <Login />
+          </div>
+      </Group>
+    </Navbar>
+    </Header >
   )
 };
 
