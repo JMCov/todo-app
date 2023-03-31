@@ -1,4 +1,4 @@
-# LAB - Class 31/ Class 32
+# LAB - Class 31/ Class 32 / Class 33 / Class 34
 
 ## Project: todo-app
 
@@ -62,6 +62,16 @@ Phase 3
         - Logged In Users with ‘delete’ permissions can delete items.
         - Logged In Users with ‘read’ permissions can see the list of To Do Items.
 
+Phase 4
+
+1. Alter the Add, Toggle Complete, and Delete functions within your to do application to use your API instead of in memory state.
+    - Fetch the current list of items from the database on application start.
+    - Whenever you add/update/delete an item, refresh the state so the user can instantly see the change.
+     - Consider: Do you re-fetch from the server every time you make a change?
+         - If so, how?
+         - If not, how will you stay in sync?
+2. Alter the Login Context to use the server to login users instead of our mock users list
+
 ### Links and Resources
 
 - [GitHub Repo](https://github.com/JMCov/todo-app)
@@ -69,6 +79,8 @@ Phase 3
 - [Lab 32 - CodeSandbox](https://codesandbox.io/p/github/JMCov/todo-app/context-methods?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522clfsrdont000wg0eq9xangkav%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clft802yr007t356lk7n7466s%2522%253A%257B%2522key%2522%253A%2522clft802yr007t356lk7n7466s%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522key%2522%253A%2522clft8fmnp006l356lf3gm3m4w%2522%252C%2522type%2522%253A%2522PROJECT_SETUP%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522clft8097000el356lnc5jzcxe%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522clft8093500cz356l0ahdrz1x%2522%252C%2522isMinimized%2522%253Afalse%252C%2522path%2522%253A%2522%252F%2522%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clft802yr007t356lk7n7466s%2522%252C%2522spacesOrder%2522%253A%255B%2522clft802yr007t356lk7n7466s%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D)
 
 - [Lab 33 - CodeSandbox](https://codesandbox.io/p/github/JMCov/todo-app/auth?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522clfsrdont000wg0eq9xangkav%2522%252C%2522openFiles%2522%253A%255B%2522%252FREADME.md%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clfugexlt005b356mokquk884%2522%253A%257B%2522key%2522%253A%2522clfugexlt005b356mokquk884%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522key%2522%253A%2522clfugexlu005c356mrjl7op11%2522%252C%2522type%2522%253A%2522PROJECT_SETUP%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522clfugexlu005d356mo4066fez%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clfugexlt005b356mokquk884%2522%252C%2522spacesOrder%2522%253A%255B%2522clfugexlt005b356mokquk884%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D)
+
+- [Lab 34 - CodeSandbox](https://codesandbox.io/p/github/JMCov/todo-app/auth-api?file=%2FREADME.md&workspace=%257B%2522activeFileId%2522%253A%2522clfsrdont000wg0eq9xangkav%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clfw4eswh008b356lufjxhwss%2522%253A%257B%2522key%2522%253A%2522clfw4eswh008b356lufjxhwss%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522key%2522%253A%2522clfw4eswh008c356lluvp5vbm%2522%252C%2522type%2522%253A%2522PROJECT_SETUP%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522clfw4eswi008d356ln3vwsyy3%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clfw4eswh008b356lufjxhwss%2522%252C%2522spacesOrder%2522%253A%255B%2522clfw4eswh008b356lufjxhwss%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D)
 
 ### Setup
 
